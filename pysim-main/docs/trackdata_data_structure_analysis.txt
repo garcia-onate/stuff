@@ -1,0 +1,42 @@
+TrackData Structure Summary
+Type: Dictionary with 6 main fields
+Fields: ['Grade', 'SpdLim', 'GPS', 'Milepost', 'PathDist', 'PLM']
+
+Field Details:
+1. Grade (Track Geometry)
+Dist: 1,984 distance points from 0.0 to 260.84 miles
+Percent: Track grade percentages, range -1.395% to +1.804%
+Curvature: Track curvature values, range 0.0 to 5.3 degrees
+Elevation: All zeros (1,984 points) - elevation data not populated
+SuperElev: All zeros (1,984 points) - super-elevation data not populated
+2. SpdLim (Speed Limits)
+Dist: 152 distance points from 0.0 to 260.73 miles
+Mph: Speed limit values, range 15 to 70 mph
+Type: Speed limit types, values 2 or 3 (likely coding for different restriction types)
+3. GPS (Geographic Coordinates)
+Dist: 696 distance points from 0.001 to 260.84 miles
+Nlat: Latitude coordinates, range 32.58° to 34.25° North
+Elon: Longitude coordinates, range -95.11° to -91.94° West
+This appears to be a route from Texas/Oklahoma region
+4. Milepost (Railroad Mileposts)
+Dist: 262 distance points from 0.78 to 260.73 miles
+MP: Milepost numbers, range 264 to 525 (railroad mile markers)
+5. PathDist (Total Path Distance)
+Value: 260.84289551 miles (total route length)
+6. PLM (Permanent Speed Restrictions)
+Dist: 4 distance points (0.0, 0.0, 7.68, 8.15 miles)
+Value: Speed restriction values (-8, 8, -4, -8) - likely mph adjustments
+Key Characteristics:
+Route Length: ~261 miles total
+Geographic Location: Runs from approximately 34.25°N, -91.94°W to 32.58°N, -95.11°W (likely Arkansas/Texas)
+Grade Profile: Relatively gentle grades, mostly between -1.4% and +1.8%
+Speed Profile: Varies from 15 mph to 70 mph with 152 speed change points
+Track Geometry: Some curved sections (up to 5.3 degrees) but many straight sections
+Milepost System: Standard railroad mileposts from MP 264 to MP 525
+This TrackData structure provides comprehensive information about:
+
+Physical track geometry (grades, curves)
+Operating restrictions (speed limits, temporary restrictions)
+Geographic positioning (GPS coordinates)
+Infrastructure references (mileposts)
+The data is well-structured for train simulation, providing all the track characteristics needed to calculate gravity forces, speed restrictions, and geographic positioning along the route.

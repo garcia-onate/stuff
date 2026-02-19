@@ -1,0 +1,60 @@
+Profile Data Structure Summary
+Type: Dictionary with 8 fields
+Fields: ['CNotch', 'Dist', 'leadNotch', 'fence_flg', 'remoteNotch', 'Speed', 'Time', 'Frope']
+
+Field Details:
+CNotch (Command Notch)
+
+Type: List of 929 float values
+Range: -6.033947 to 8.000000
+First 10 values: [7.914052967637337, 7.918344864826719, 7.921399698534576, ...]
+Last 5 values: [-3.8484545260935312, -3.8481803479794845, -3.846049801967285, -3.8463781059269793, -3.8367013264324585]
+Dist (Distance)
+
+Type: List of 929 float values
+Range: 98.000000 to 259.000000 miles
+First 10 values: [98.0, 98.01953125, 98.0390625, 98.05859375, ...]
+Last 5 values: [258.921875, 258.94140625, 258.9609375, 258.98046875, 259.0]
+leadNotch (Lead Locomotive Notch)
+
+Type: List of 929 float values
+Range: -6.579253 to 8.000004
+First 10 values: [7.914052967637337, 7.836689482987279, 7.84279915963112, ...]
+Last 5 values: [-3.848458052717679, -3.84818387483654, -3.84605333063418, -3.8463816343149895, -3.8367048630406284]
+fence_flg (Fence Flag)
+
+Type: List of 929 integer values
+Range: 1.000000 to 1.000000 (all values are 1)
+Constant array of all 1's
+remoteNotch (Remote Locomotive Notch)
+
+Type: List of 929 float values
+Range: -6.033949 to 8.000008
+First 10 values: [7.914052967637337, 8.00000024666616, 8.00000023743803, ...]
+Last 5 values: [-3.848458052717679, -3.84818387483654, -3.84605333063418, -3.8463816343149895, -3.8367048630406284]
+Speed
+
+Type: List of 929 float values
+Range: 22.804014 to 69.994308 (likely mph)
+First 10 values: [29.998490349636736, 30.17933326064999, 30.35726823486724, ...]
+Last 5 values: [30.67365097787071, 30.520309467693636, 30.356721459946485, 30.18269252249082, 30.000046295751957]
+Time
+
+Type: List of 929 float values
+Range: 0.000000 to 3.950359 hours
+First 10 values: [0.0, 0.0006491237208056861, 0.0012944000745615273, ...]
+Last 5 values: [3.9477841980486286, 3.9484225411955216, 3.9490642081999114, 3.9497094543334272, 3.9503585251559055]
+Frope (Rope Forces)
+
+Type: List of 929 nested lists (2D array structure)
+Each entry is a list containing force values for different car groups
+First entry has 101 force values ranging from ~47,468 to ~-47,134 N
+This appears to be the most complex field with rope/coupler forces for each time step and car group
+The data represents a train simulation profile with:
+
+929 time points spanning about 3.95 hours
+161 miles of track (from mile 98 to 259)
+Multiple locomotive control settings (CNotch, leadNotch, remoteNotch)
+Speed profile ranging from ~23 to ~70 mph
+Complex force data in the Frope field representing coupler/rope forces across the train consist
+This appears to be a detailed train dynamics simulation dataset with time-series data for locomotive control, speed, position, and internal forces throughout the train.

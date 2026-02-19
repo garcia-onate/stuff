@@ -1,0 +1,45 @@
+Execution Trace Analysis
+Based on my analysis of runFastSimM.py and calcRopeForces.py, here's what happens with the Frope field from the profile input structure:
+
+Answer: NO, the Frope field from the profile is NOT used as input anywhere in the simulation.
+Here's the detailed execution trace:
+
+1. Profile Fields Actually Used by calcRopeForces:
+The calcRopeForces function (called on line 70 of runFastSimM.py) only uses these fields from the profile:
+
+profile['Dist'] - Distance array
+profile['leadNotch'] - Lead locomotive notch commands
+profile['fence_flg'] - Fence flag for locomotive control
+profile['remoteNotch'] - Remote locomotive notch commands
+profile['Time'] - Time array
+profile['Speed'] - Speed array
+The profile['Frope'] field is completely ignored by calcRopeForces.
+
+2. How Rope Forces Are Actually Calculated:
+Instead of using profile['Frope'], the simulation:
+
+Calculates locomotive forces from notch commands and speed using locomotive effort curves
+Calculates gravity forces using track grade data
+Calculates drag forces using Davis equation coefficients
+Calculates inertial forces from acceleration
+Combines all forces to compute rope forces: F = Fgravloco + Fdrag + Finertia
+Applies cumulative sum to get coupler forces along the train
+3. What Happens to the Calculated Forces:
+The newly calculated rope forces F (from calcRopeForces) are converted to SI units: Frope_in0 = F * lbf_()
+These calculated forces are then interpolated and grouped for the FastSim simulation: Fropesi
+The original profile['Frope'] is never referenced again
+4. Output Structure:
+The final output includes:
+
+out['Fropesi'] - The calculated and interpolated rope forces used in simulation
+out['Frope_insi'] - The calculated rope forces passed into FastSim
+out['profile'] - The original profile (including the unused Frope field)
+Conclusion:
+The profile['Frope'] field appears to be legacy data or perhaps validation data from a previous calculation, but it plays no role whatsoever in the actual simulation. The simulation recalculates all rope forces from first principles using locomotive effort, gravity, drag, and inertial force models.
+
+This suggests that the Frope field in your profile data might be:
+
+Legacy data from a previous simulation run
+Reference data for validation purposes
+Unused backup data that was intended for a different simulation mode
+The simulation is completely physics-based and derives all forces from the locomotive notch commands, speed profile, track geometry, and train/locomotive parameters.
