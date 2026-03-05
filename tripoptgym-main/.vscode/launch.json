@@ -1,0 +1,152 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "TripOpt: Train Agent",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "tripoptgym.scripts.main",
+            "console": "integratedTerminal",
+            "args": [
+                "train",
+                "--csv",
+                "route_data.csv",
+                "--start",
+                "18",
+                "--end",
+                "22",
+                "--checkpoint-interval",
+                "100",
+                "--target-score",
+                "5000"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "TripOpt: Resume Training",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "tripoptgym.scripts.main",
+            "console": "integratedTerminal",
+            "args": [
+                "train",
+                "--csv",
+                "route_data.csv",
+                "--resume",
+                "checkpoint_ep10.pth",
+                "--episodes",
+                "1000",
+                "--checkpoint-interval",
+                "5",
+                "--start",
+                "18",
+                "--end",
+                "22",
+                "--target-score",
+                "1200"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "TripOpt: Demo Video with Trained Agent",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "tripoptgym.scripts.main",
+            "console": "integratedTerminal",
+            "args": [
+                "demo",
+                "--csv",
+                "route_data.csv",
+                "--agent",
+                "trained",
+                "--model",
+                "checkpoint_ep5.pth",
+                "--output",
+                "demo_trained_ep5.mp4",
+                "--start",
+                "18",
+                "--end",
+                "22"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "TripOpt: Demo Video with Heuristic Agent",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "tripoptgym.scripts.main",
+            "console": "integratedTerminal",
+            "args": [
+                "demo",
+                "--csv",
+                "route_data.csv",
+                "--agent",
+                "heuristic",
+                "--output",
+                "demo_heuristic.mp4",
+                "--start",
+                "18",
+                "--end",
+                "24"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "TripOpt: Demo CSV Output (Trained Agent)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "tripoptgym.scripts.main",
+            "console": "integratedTerminal",
+            "args": [
+                "demo",
+                "--csv",
+                "route_data.csv",
+                "--agent",
+                "trained",
+                "--model",
+                "checkpoint_ep5.pth",
+                "--output",
+                "demo_trained.csv",
+                "--start",
+                "18",
+                "--end",
+                "22"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "TripOpt: Demo CSV Output (Heuristic Agent)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "tripoptgym.scripts.main",
+            "console": "integratedTerminal",
+            "args": [
+                "demo",
+                "--csv",
+                "route_data.csv",
+                "--agent",
+                "heuristic",
+                "--output",
+                "demo_heuristic.csv",
+                "--start",
+                "18",
+                "--end",
+                "24"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "TripOpt: Convert Route Data",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "tripoptgym.scripts.main",
+            "console": "integratedTerminal",
+            "args": [
+                "convert",
+                "route_input_parsed.txt",
+                "route_data_generated.csv"
+            ],
+            "justMyCode": true
+        }
+    ]
+}

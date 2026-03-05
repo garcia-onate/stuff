@@ -1,0 +1,39 @@
+# TripOpt Gym Default Configuration
+
+# Training hyperparameters
+training:
+  learning_rate: 0.0005  # 5e-4
+  minibatch_size: 100
+  discount_factor: 0.99
+  replay_buffer_size: 100000
+  interpolation_parameter: 0.001  # tau for soft update
+  update_frequency: 4  # Learn every N steps (1=every step, 4=every 4 steps)
+  epsilon_start: 1.0
+  epsilon_end: 0.01
+  epsilon_decay: 0.995 #1.0 will decay to 0.01 over 1000 episodes
+  number_episodes: 1000
+  max_timesteps: 25000
+  checkpoint_interval: 100  # Save checkpoint every N episodes
+
+# Environment settings
+environment:
+  num_parallel_envs: 4
+  start_location: 18
+  end_location: 24
+
+# Network architecture
+network:
+  hidden_layers: [64, 64]
+
+# Device configuration
+device:
+  preference: auto  # auto, cuda, or cpu
+
+# Logging configuration
+logging:
+  enable_logging: true  # Enable comprehensive training logging
+  log_dir: logs  # Directory for log files
+  enable_csv: true  # Enable CSV file logging
+  enable_tensorboard: true  # Enable TensorBoard visualization
+  log_step_level: true  # Log metrics at each learning step (more detailed, larger files)
+  run_name: null  # Optional run name (null = timestamp)
